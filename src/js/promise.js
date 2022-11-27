@@ -76,20 +76,20 @@
 */
 
 
-// const makeOrder = (dish) => {
-//     return Promise.resolve(`✅Вот ваше блюдо: ${dish}`);        
+const makeOrder = (dish) => {
+    return Promise.resolve(`✅Вот ваше блюдо: ${dish}`);        
    
-//    };
-// makeOrder('пирожок').then(onMakeOrderSuccess);
+   };
+makeOrder('пирожок').then(onMakeOrderSuccess);
 
-// function onMakeOrderSuccess(result) {
-//     console.log('onMakeOrderSuccess');
-//     console.log(result);
-// } 
-// function onMakeOrderError(error) {
-//     console.log('onMakeOrderError');
-//     console.log(error);
-// }
+function onMakeOrderSuccess(result) {
+    console.log('onMakeOrderSuccess');
+    console.log(result);
+} 
+function onMakeOrderError(error) {
+    console.log('onMakeOrderError');
+    console.log(error);
+}
 
 /*Покемони с https://pokeapi.co/*/
 
