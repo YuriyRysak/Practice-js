@@ -5,32 +5,37 @@ const searchField = document.getElementById('searchNameField');
 const articlesContainer = document.getElementById('articles');
 
 searchBtnRef.addEventListener('click', e => {
-    const query = searchField.value
-    // console.log(query)
-    getNews({
+     getNewsAxios({
         query: searchField.value
 
     })
 });
 
 
-function getNews ({query}) {
+// function getNews ({query}) {
+//     const urlAPI = `https://newsapi.org/v2/everything?q=${query}&from=2022-12-06&to=2022-12-06&sortBy=popularity&apiKey=${API_KEY}`;
+
+//     fetch(urlAPI).then(res => {
+//         if(!res.ok) {
+//             throw new Error(res.message)
+//         }
+//         return res.json()
+//     })
+//     .then(({articles}) => {
+//         render (articles)
+        
+    
+//     })
+// }
+
+function getNewsAxios ({query}) {
     const urlAPI = `https://newsapi.org/v2/everything?q=${query}&from=2022-12-06&to=2022-12-06&sortBy=popularity&apiKey=${API_KEY}`;
 
-    fetch(urlAPI).then(res => {
-        if(!res.ok) {
-            throw new Error(res.message)
-        }
-        return res.json()
-    }).then(({articles}) => {
-        render (articles)
-        // console.log(articles)
-    
-    })
+    axios.get(urlAPI)
+       .then(res => res.data)
+       .then(({articles}) => render(articles))
+       .catch(error => console.log(error))
 }
-
-// .then(data => {
-    //     console.log(data)
 
     function render (articles) {
         articlesContainer.innerHTML = '';
