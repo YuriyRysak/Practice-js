@@ -1,8 +1,11 @@
 const API_KEY = '1d289197590b4695af2157c664a54f22';
+const PageSize = 8;
+let currentPage =1;
 
 const searchBtnRef = document.getElementById('searchControl');
 const searchField = document.getElementById('searchNameField');
 const articlesContainer = document.getElementById('articles');
+const paginationContainer = document.getElementById('pagination');
 
 searchBtnRef.addEventListener('click', e => {
      getNewsAxios({
@@ -10,7 +13,6 @@ searchBtnRef.addEventListener('click', e => {
 
     })
 });
-
 
 // function getNews ({query}) {
 //     const urlAPI = `https://newsapi.org/v2/everything?q=${query}&from=2022-12-06&to=2022-12-06&sortBy=popularity&apiKey=${API_KEY}`;
@@ -22,18 +24,29 @@ searchBtnRef.addEventListener('click', e => {
 //         return res.json()
 //     })
 //     .then(({articles}) => {
-//         render (articles)
-        
-    
+//         render (articles)         
 //     })
 // }
+function calculatePagination(totalResults) {
+    totalPages = Math.ceil(totalResults / PageSize)
+    renderPagination()
+
+}
+function renderPagination() {
+    console.log(totalPages)
+
+}
+
 
 function getNewsAxios ({query}) {
-    const urlAPI = `https://newsapi.org/v2/everything?q=${query}&from=2022-12-06&to=2022-12-06&sortBy=popularity&apiKey=${API_KEY}`;
+    const urlAPI = `https://newsapi.org/v2/everything?q=${query}&from=2022-12-01&apiKey=${API_KEY}&pageSize=${PageSize}&page=${currentPage}`;
 
     axios.get(urlAPI)
        .then(res => res.data)
-       .then(({articles}) => render(articles))
+       .then(({articles, totalResults}) => {
+        render(articles)
+        calculatePagination(totalResults)
+       })
        .catch(error => console.log(error))
 }
 
