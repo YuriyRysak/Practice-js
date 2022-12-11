@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/app-axios.css" rel="stylesheet" />
+    <title>App-axios</title>
+</head>
+<body>
+  <main>
+      <section>
+        <lebel for="searchName">введіть запит пошуку новин</lebel>
+        <input name="searchName" id="searchNameField"/>
+        <button id="searchControl">Пошук</button>
+    </section>
+    <section id="articles"></section> 
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+       
+      </ul>
+    </nav>
+  </main> 
+    
+  <script src="/src/js/pagination.js" type="module"></script>
+</body>
+</html>
