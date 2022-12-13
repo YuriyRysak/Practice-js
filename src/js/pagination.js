@@ -1,6 +1,8 @@
 const API_KEY = '1d289197590b4695af2157c664a54f22';
 const PageSize = 8;
-let currentPage =1;
+
+let currentPage = 1;
+let totalPages = undefined;
 
 const searchBtnRef = document.getElementById('searchControl');
 const searchField = document.getElementById('searchNameField');
@@ -13,6 +15,11 @@ searchBtnRef.addEventListener('click', e => {
 
     })
 });
+paginationContainer.addEventListener('click', e => {
+    e.preventDefault();
+    if (e.target.className !== "page-link") return
+
+})
 
 // function getNews ({query}) {
 //     const urlAPI = `https://newsapi.org/v2/everything?q=${query}&from=2022-12-06&to=2022-12-06&sortBy=popularity&apiKey=${API_KEY}`;
@@ -33,7 +40,9 @@ function calculatePagination(totalResults) {
 
 }
 function renderPagination() {
-    console.log(totalPages)
+    // <li class="page-item"><a class="page-link" href="#">1</a></li>
+   let restPages = totalPages;
+    // console.log(totalPages)
 
 }
 
