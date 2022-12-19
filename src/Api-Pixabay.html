@@ -7,6 +7,22 @@
     <title>API-PIXABAY</title>
 </head>
 <body>
-    <script src="/src/js/Api-Pixabay.js" type="module"></script>
+    <form class="search-form" id="search-form">
+        <input class="search-input"
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button type="submit">Search</button>
+
+        <div class="gallery">
+            <!-- Карточки изображений -->
+          </div>
+
+          <button type="button" class="load-more">Load more</button>
+      </form>
+    
+    <script src="/src/js/index.js" type="module"></script>
 </body>
 </html>
